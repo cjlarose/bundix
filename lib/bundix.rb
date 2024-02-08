@@ -80,7 +80,7 @@ class Bundix
   def platforms(spec, dep_cache)
     # c.f. Bundler::CurrentRuby
     platforms = dep_cache.fetch(spec.name).platforms.map do |platform_name|
-      PLATFORM_MAPPING[platform_name.to_s]
+      PLATFORM_MAPPING.fetch platform_name.to_s
     end.flatten
 
     {platforms: platforms}
